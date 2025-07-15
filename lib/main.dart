@@ -19,6 +19,7 @@ void main() async {
 class MasjidCommunityApp extends StatelessWidget {
   const MasjidCommunityApp({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
