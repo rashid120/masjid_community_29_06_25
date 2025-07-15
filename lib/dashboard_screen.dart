@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:masjid_community_29_06_25/screens/home_screen.dart';
 import 'package:masjid_community_29_06_25/screens/news_screen/news_screen.dart';
-import 'package:masjid_community_29_06_25/screens/profile_screen.dart';
+import 'package:masjid_community_29_06_25/screens/profile_screen/profile_screen.dart';
 import 'package:masjid_community_29_06_25/screens/settings_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
