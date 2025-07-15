@@ -9,12 +9,12 @@ import '../screens/auth_screen/login_screen.dart';
 import '../screens/notifications_screen.dart';
 import '../screens/payment_history_screen.dart';
 import '../screens/payment_screen.dart';
-import '../screens/profile_screen.dart';
+import '../screens/profile_screen/profile_screen.dart';
 import '../screens/settings_screen.dart';
 import '../screens/auth_screen/signup_screen.dart';
 import '../screens/suggestions_complaints_screen.dart';
 import '../screens/suggestions_complaints_view_screen.dart';
-import '../screens/user_details_screen.dart';
+import '../screens/user_details_screen/user_details_screen.dart';
 import '../screens/user_management_screen.dart';
 
 class RouteHelper{
