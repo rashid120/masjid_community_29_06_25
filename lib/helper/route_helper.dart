@@ -4,7 +4,7 @@ import 'package:masjid_community_29_06_25/screens/splash_screen.dart';
 import '../dashboard_screen.dart';
 import '../screens/admin_panel_screen.dart';
 import '../screens/dashboard_screen.dart';
-import '../screens/home_screen.dart';
+import '../screens/home_screen/home_screen.dart';
 import '../screens/auth_screen/login_screen.dart';
 import '../screens/notifications_screen.dart';
 import '../screens/payment_history_screen.dart';
