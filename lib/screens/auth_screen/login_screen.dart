@@ -5,6 +5,7 @@ import 'package:masjid_community_29_06_25/widgets/custom_text_field.dart';
 import '../../view_models/auth_view_model.dart';
 import '../../view_models/language_view_model.dart';
 import '../../widgets/custom_button.dart';
+import 'forget_password_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -13,7 +14,8 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStateMixin {
+class _LoginScreenState extends State<LoginScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _slideAnimation;
   final AuthViewModel authViewModel = Get.put(AuthViewModel());
@@ -58,7 +60,13 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                 width: 400,
               ),
             ),
-            Text('app_name'.tr, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),),
+            Text(
+              'app_name'.tr,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16),
+            ),
             const SizedBox(height: 20),
             Expanded(
               child: SlideTransition(
@@ -81,12 +89,18 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                         children: [
                           Text(
                             'Welcome Back'.tr,
-                            style: TextStyle(fontSize: 28, color: Colors.black, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 28,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 7),
                           Text(
                             'Enter your details below'.tr,
-                            style: TextStyle(fontSize: 14, color: Colors.black,),
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
                           ),
                           const SizedBox(height: 40),
                           CustomTextField(
@@ -94,41 +108,61 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                             prefixIcon: Icons.person,
                             hintText: 'email_or_phone'.tr,
                           ),
-
                           const SizedBox(height: 20),
                           Obx(() => CustomTextField(
-                            isPassword: true,
-                            controller: authViewModel.passwordController,
-                            obscureText: authViewModel.isPasswordHidden.value,
-                            hintText: 'password'.tr,
-                            prefixIcon: Icons.lock,
-                            suffixIcon: Icon(authViewModel.isPasswordHidden.value ? Icons.visibility : Icons.visibility_off),
-                            onSuffixTap: () => authViewModel.togglePasswordVisibility(),
-                          )),
+                                isPassword: true,
+                                controller: authViewModel.passwordController,
+                                obscureText:
+                                    authViewModel.isPasswordHidden.value,
+                                hintText: 'password'.tr,
+                                prefixIcon: Icons.lock,
+                                suffixIcon: Icon(
+                                    authViewModel.isPasswordHidden.value
+                                        ? Icons.visibility
+                                        : Icons.visibility_off),
+                                onSuffixTap: () =>
+                                    authViewModel.togglePasswordVisibility(),
+                              )),
                           Align(
                             alignment: Alignment.centerRight,
-                            child: TextButton(onPressed: () {
-
-                            }, child: Text('Forgot password', style: TextStyle(color: Colors.black),)),
+                            child: TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => const ForgotPasswordScreen()),
+                                  );
+                                },
+                                child: Text(
+                                  'Forgot password',
+                                  style: TextStyle(color: Colors.black),
+                                )),
                           ),
                           const SizedBox(height: 20),
-                          Obx(() => authViewModel.isLoading.value
-                              ? const CircularProgressIndicator()
-                              : CustomButton(
-                            text: 'Login',
-                            onPressed: () => authViewModel.login(),
-                          ),),
+                          Obx(
+                            () => authViewModel.isLoading.value
+                                ? const CircularProgressIndicator()
+                                : CustomButton(
+                                    text: 'Login',
+                                    onPressed: () => authViewModel.login(),
+                                  ),
+                          ),
                           const SizedBox(height: 10),
-                          Divider(color: Colors.grey.shade200,),
+                          Divider(
+                            color: Colors.grey.shade200,
+                          ),
                           TextButton(
                             style: Theme.of(context).textButtonTheme.style,
                             onPressed: () => Get.toNamed('/signup'),
-                            child: Text.rich(TextSpan(
-                                children: [
-                                  TextSpan(text: "dont_have_account".tr, style: TextStyle(color: Colors.black)),
-                                  TextSpan(text: ' Sign Up', style: TextStyle(color: Colors.blue, ))
-                                ]
-                            )),
+                            child: Text.rich(TextSpan(children: [
+                              TextSpan(
+                                  text: "dont_have_account".tr,
+                                  style: TextStyle(color: Colors.black)),
+                              TextSpan(
+                                  text: ' Sign Up',
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                  ))
+                            ])),
                           ),
                         ],
                       ),

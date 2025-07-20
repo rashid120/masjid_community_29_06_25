@@ -18,6 +18,8 @@ class CustomTextField extends StatelessWidget {
   final Widget? leading;
   final EdgeInsetsGeometry? contentPadding;
   final Color fillColor;
+  final InputBorder? border;
+
   final Color borderColor;
   final double borderRadius;
   final double fontSize;
@@ -37,6 +39,7 @@ class CustomTextField extends StatelessWidget {
     this.obscureText = false,
     this.onSuffixTap,
     this.prefixIcon,
+    this.border,
     this.suffixIcon,
     this.leading,
     this.contentPadding,
@@ -63,7 +66,7 @@ class CustomTextField extends StatelessWidget {
           filled: true,
           fillColor: fillColor,
           contentPadding: contentPadding ?? const EdgeInsets.all(12),
-          border: UnderlineInputBorder(borderRadius: BorderRadius.circular(12)),
+          border: border ?? UnderlineInputBorder(borderRadius: BorderRadius.circular(12)),
         ),
         initialCountryCode: 'IN',
         onChanged: onNumberChanged,
@@ -85,12 +88,11 @@ class CustomTextField extends StatelessWidget {
         hintText: hintText,
         labelText: labelText,
         hintStyle: TextStyle(color: ColorRes.hintTextColor),
-
         filled: true,
         fillColor: fillColor,
-        contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
-        border: UnderlineInputBorder(borderRadius: BorderRadius.circular(12)),
-        prefixIcon: prefixWidget ?? Icon(prefixIcon, color: ColorRes.hintTextColor,),
+        contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+        border: border ?? UnderlineInputBorder(borderRadius: BorderRadius.circular(12)),
+        prefixIcon: prefixWidget ?? ((prefixIcon == null) ? null : Icon(prefixIcon, color: ColorRes.hintTextColor,)),
         suffixIcon: isPassword ? IconButton(
           icon: Icon(obscureText ? Icons.visibility : Icons.visibility_off, color: ColorRes.hintTextColor,),
           onPressed: onSuffixTap,
