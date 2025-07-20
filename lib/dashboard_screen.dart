@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:masjid_community_29_06_25/screens/home_screen.dart';
+import 'package:masjid_community_29_06_25/screens/home_screen/home_screen.dart';
 import 'package:masjid_community_29_06_25/screens/news_screen/news_screen.dart';
 import 'package:masjid_community_29_06_25/screens/profile_screen/profile_screen.dart';
 import 'package:masjid_community_29_06_25/screens/settings_screen.dart';
@@ -62,13 +62,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
               setState(() {
                 currentPage = index;
               });
-              // switch(index){
-              //   case 0 : HomeScreen();
-              //   case 1 : Center(child: Text('Payment status screen'),);
-              //   case 2 : Center(child: Text('News screen'),);
-              //   case 3 : ProfileScreen();
-              //   default : Center(child: Text('Invalid Screen'),);
-              // }
             },
           ),
         ),

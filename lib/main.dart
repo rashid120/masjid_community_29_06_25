@@ -41,8 +41,8 @@ class MasjidCommunityApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       initialRoute: RouteHelper.getInitialPage(),
-      home: SplashScreen(),
-      // home: DashboardScreen(pageIndex: 0,),
+      // home: SplashScreen(),
+      home: DashboardScreen(pageIndex: 0,),
       getPages: RouteHelper.routes,
     );
   }
