@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:masjid_community_29_06_25/screens/home_screen/home_screen.dart';
 import 'package:masjid_community_29_06_25/screens/news_screen/news_screen.dart';
 import 'package:masjid_community_29_06_25/screens/profile_screen/profile_screen.dart';
-import 'package:masjid_community_29_06_25/screens/settings_screen.dart';
+import 'package:masjid_community_29_06_25/screens/users_status_screen/users_status_screen.dart';
+import 'package:masjid_community_29_06_25/utils/resources/colors_res.dart';
 
 class DashboardScreen extends StatefulWidget {
   final int pageIndex;
@@ -31,13 +32,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
       bottomNavigationBar: Container(
         margin: EdgeInsets.only(left: 16, right: 16, bottom: 16),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: ColorResTheme.cardBgColo(),
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              color: Colors.black12,
+              color: ColorResTheme.shadowColor(),
               blurRadius: 8,
-              offset: Offset(0, 2),
+              offset: Offset(3, 3),
             ),
           ],
         ),
@@ -49,7 +50,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             unselectedItemColor: Colors.grey,      // unselected icon & label color
             // selectedLabelStyle: TextStyle(color: Colors.blue),
             unselectedLabelStyle: TextStyle(color: Colors.grey),
-            backgroundColor: Colors.white,
+            backgroundColor: ColorResTheme.cardBgColo(),
             elevation: 2,
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home',),
@@ -74,8 +75,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget getBody() {
     switch (currentPage) {
       case 0: return HomeScreen();
-      case 1: return SettingsScreen();
-      // case 1: return Center(child: Text('Payment status screen'));
+      // case 1: return SettingsScreen();
+      case 1: return UsersStatusScreen();
       case 2: return NewsScreen();
       // case 2: return DashboardScreenAdmin();
       case 3: return ProfileScreen();
