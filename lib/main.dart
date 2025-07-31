@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:masjid_community_29_06_25/binding/binding_classes.dart';
 import 'package:masjid_community_29_06_25/dashboard_screen.dart';
 import 'package:masjid_community_29_06_25/helper/route_helper.dart';
-import 'package:masjid_community_29_06_25/screens/splash_screen.dart';
 import 'package:masjid_community_29_06_25/utils/app_theme.dart';
 import 'package:masjid_community_29_06_25/view_models/language_view_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,6 +14,7 @@ import 'package:masjid_community_29_06_25/utils/localization/app_translations.da
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Get.putAsync(() => SharedPreferences.getInstance());
+  await Hive.initFlutter();
   Get.put(LanguageController());
   runApp(const MasjidCommunityApp());
 }
@@ -22,6 +25,7 @@ class MasjidCommunityApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialBinding: AppBinding(),
       title: 'Masjid Community',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,

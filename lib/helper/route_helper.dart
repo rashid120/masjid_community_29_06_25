@@ -1,6 +1,9 @@
 import 'package:get/get.dart';
 import 'package:masjid_community_29_06_25/screens/news_screen/news_screen.dart';
+import 'package:masjid_community_29_06_25/screens/notes_screen/notes_screen.dart';
 import 'package:masjid_community_29_06_25/screens/splash_screen.dart';
+import 'package:masjid_community_29_06_25/screens/user_profile_screen/user_profile_screen.dart';
+import 'package:masjid_community_29_06_25/screens/users_status_screen/users_status_screen.dart';
 import '../dashboard_screen.dart';
 import '../screens/admin_panel_screen.dart';
 import '../screens/dashboard_screen.dart';
@@ -36,6 +39,9 @@ class RouteHelper{
   static String notifications = '/notifications';
   static String settings = '/settings';
   static String newsScreen = '/news_screen';
+  static String usersStatusScreen = '/users_status_screen';
+  static String notesScreen = '/notes_screen';
+  static String userProfileScreen = '/user_profile_screen';
 
   static String getInitialPage() => initialPage;
   static String getDashboardScreen() => dashboardScreen;
@@ -54,6 +60,10 @@ class RouteHelper{
   static String getNotificationsScreen() => notifications;
   static String getSettingsScreen() => settings;
   static String getNewsScreen() => newsScreen;
+  static String getUsersStatusScreen() => usersStatusScreen;
+  static String getNotesScreen() => notesScreen;
+  static String getUserProfileScreen(String userId) => '$userProfileScreen?user_id=$userId';
+
 
   static Transition pagesTransition = Transition.topLevel;
 
@@ -76,6 +86,9 @@ class RouteHelper{
     GetPage(name: notifications, page: () => const NotificationsScreen(), transition: pagesTransition),
     GetPage(name: settings, page: () => const SettingsScreen(), transition: pagesTransition),
     GetPage(name: newsScreen, page: () => NewsScreen(), transition: pagesTransition),
+    GetPage(name: usersStatusScreen, page: () => UsersStatusScreen(), transition: pagesTransition),
+    GetPage(name: notesScreen, page: () => NotesScreen(), transition: pagesTransition),
+    GetPage(name: userProfileScreen, page: () => UserProfileScreen(userId: Get.parameters['user_id'] ?? '',)),
   ];
 
 }
